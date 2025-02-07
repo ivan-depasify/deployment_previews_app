@@ -11,5 +11,28 @@
   </style>
 </head>
 <body>
+<h1>Articles</h1>
+<h2>Add new article</h2>
+<!-- Form to create a new article -->
+<%= form_with model: @article, url: articles_path, local: true do |f| %>
+  <p>
+    <%= f.label :title, "Title:" %><br>
+    <%= f.text_field :title %>
+  </p>
+  
+  <p>
+    <%= f.label :content, "Content:" %><br>
+    <%= f.text_area :content %>
+  </p>
+
+  <%= f.submit "Add Article" %>
+<% end %>
+
+<h2>List of all articles</h2>
+<ul>
+  <% @articles.each do |article| %>
+    <li><strong><%= article.title %></strong>: <%= article.content %></li>
+  <% end %>
+</ul>
 </body>
 </html>
