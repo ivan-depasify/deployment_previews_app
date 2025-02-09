@@ -25,13 +25,18 @@
     <%= f.text_area :content %>
   </p>
 
+  <p>
+    <%= f.label :author_name, "Author Name:" %><br>
+    <%= f.text_field :author_name %>
+  </p>
+
   <%= f.submit "Add Article" %>
 <% end %>
 
 <h2>List of all articles</h2>
 <ul>
   <% @articles.each do |article| %>
-    <li><strong><%= article.title %></strong>: <%= article.content %></li>
+    <li><strong><%= article.title %></strong> by <%= article.author_name %>: <%= article.content %></li>
   <% end %>
 </ul>
 </body>
